@@ -1,0 +1,6 @@
+Blockbreaker improvments:
+
+Change the block colors. 1 hit bricks will be green. 2 hit will be yellow and 3 hits are red.
+Then when you hit a brick and it loses a hit the color will change down the scale. Meaning that red will become 
+yellow and then green and so on .
+

@@ -6,7 +6,7 @@ using UnityEngine;
 public class Paddle : MonoBehaviour
 {
     [SerializeField]
-    private bool autoPlay = false;
+    private bool autoPlay;
     private Ball ball;
 
     

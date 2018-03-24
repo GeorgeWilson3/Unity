@@ -2,10 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Paddle : MonoBehaviour
 {
-    public bool autoPlay = false;
+    [SerializeField]
+    private bool autoPlay = false;
     private Ball ball;
+
+    
+    public bool AutoPlay
+    {
+        get
+        {
+            return autoPlay;
+        }
+
+        set
+        {
+            autoPlay = value;
+        }
+    }
+
+
 
     // Use this for initialization
     void Start()
@@ -17,17 +35,17 @@ public class Paddle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!autoPlay)
+        if (!AutoPlay)
         {
             MoveWithMouse();
         }
         else
         {
-            AutoPlay();
+            SelfPlay();
         }
     }
 
-    private void AutoPlay()
+    private void SelfPlay()
     {
         Vector3 ballPosInBlocks = ball.transform.position;
 

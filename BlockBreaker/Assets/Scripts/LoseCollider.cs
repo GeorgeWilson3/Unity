@@ -11,19 +11,4 @@ public class LoseCollider : MonoBehaviour {
         levelManager = GameObject.FindObjectOfType<LevelManager>();
         // print("Collision");
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        levelManager = GameObject.FindObjectOfType<LevelManager>();
-        levelManager.LoadLevel("Lose Screen");
-    }
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

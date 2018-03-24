@@ -3,18 +3,89 @@ using UnityEngine;
 
 public class Brick : MonoBehaviour
 {
-    public static int breakableCount = 0;
-    public AudioClip crackSound;
-    public AudioClip breakSound;
-    public AudioClip unbreakableSound;
+    [SerializeField]
+    private static int breakableCount;
+
+    [SerializeField]
+    private AudioClip crackSound;
+    [SerializeField]
+    private AudioClip breakSound;
+    [SerializeField]
+    private AudioClip unbreakableSound;
 
 
     private int timesHit;
-    public Sprite[] hitSprites;
+    [SerializeField]
+    private Sprite[] hitSprites;
     private bool isBreakable;
 
     private LevelManager levelManager;
-    
+
+    public static int BreakableCount
+    {
+        get
+        {
+            return breakableCount;
+        }
+
+        set
+        {
+            breakableCount = value;
+        }
+    }
+
+    public AudioClip CrackSound
+    {
+        get
+        {
+            return crackSound;
+        }
+
+        set
+        {
+            crackSound = value;
+        }
+    }
+
+    public AudioClip BreakSound
+    {
+        get
+        {
+            return breakSound;
+        }
+
+        set
+        {
+            breakSound = value;
+        }
+    }
+
+    public AudioClip UnbreakableSound
+    {
+        get
+        {
+            return unbreakableSound;
+        }
+
+        set
+        {
+            unbreakableSound = value;
+        }
+    }
+
+    public Sprite[] HitSprites
+    {
+        get
+        {
+            return hitSprites;
+        }
+
+        set
+        {
+            hitSprites = value;
+        }
+    }
+
 
     // Use this for initialization
     void Start()
@@ -22,7 +93,7 @@ public class Brick : MonoBehaviour
         isBreakable = this.tag == "Breakable";
         if (isBreakable)
         {
-            breakableCount++;
+            BreakableCount++;
         }
 
         timesHit = 0;
@@ -39,7 +110,7 @@ public class Brick : MonoBehaviour
         }
         else
         {
-            AudioSource.PlayClipAtPoint(unbreakableSound, transform.position, 0.8f);
+            AudioSource.PlayClipAtPoint(UnbreakableSound, transform.position, 0.8f);
         }
 
     }
@@ -49,11 +120,11 @@ public class Brick : MonoBehaviour
         timesHit++;
         print("Times hit:" + timesHit);
 
-        if (timesHit >= hitSprites.Length)
+        if (timesHit >= HitSprites.Length)
         {
-            AudioSource.PlayClipAtPoint(breakSound, transform.position, 0.8f);
-            breakableCount--;
-            Debug.Log("Current brick count: " + breakableCount);
+            AudioSource.PlayClipAtPoint(BreakSound, transform.position, 0.8f);
+            BreakableCount--;
+            Debug.Log("Current brick count: " + BreakableCount);
             levelManager.BricksDetroyed();
             
             DestroyObject(gameObject);
@@ -61,7 +132,7 @@ public class Brick : MonoBehaviour
         }
         else
         {
-            AudioSource.PlayClipAtPoint(crackSound, transform.position, 0.8f);
+            AudioSource.PlayClipAtPoint(CrackSound, transform.position, 0.8f);
             LoadSprites();
         }
     }
@@ -69,18 +140,18 @@ public class Brick : MonoBehaviour
     private void LoadSprites()
     {
         int spriteIndex = timesHit;
-        if (hitSprites[spriteIndex])
+        if (HitSprites[spriteIndex])
         {
             Color color = new Color();
             
-            if (hitSprites.Length - timesHit == 1)
+            if (HitSprites.Length - timesHit == 1)
             {
                 color.r = 0;
                 color.g = 255;
                 color.b = 0;
                 color.a = 255;
             }
-            else if (hitSprites.Length - timesHit == 2)
+            else if (HitSprites.Length - timesHit == 2)
             {
                 color.r = 255;
                 color.g = 255;

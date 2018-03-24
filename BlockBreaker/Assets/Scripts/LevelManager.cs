@@ -8,7 +8,7 @@ public class LevelManager : MonoBehaviour {
 		Debug.Log ("New Level load: " + name);
 		// Application.LoadLevel (name);
         SceneManager.LoadScene(name);
-        Brick.breakableCount = 0;
+        Brick.BreakableCount = 0;
         
 	}
 
@@ -22,13 +22,13 @@ public class LevelManager : MonoBehaviour {
         // Application.LoadLevel(Application.loadedLevel + 1);
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.buildIndex + 1);
-        Brick.breakableCount = 0;
+        Brick.BreakableCount = 0;
     }
 
     public void BricksDetroyed()
     {
         // if last bick is destroyed
-        if (Brick.breakableCount <= 0)
+        if (Brick.BreakableCount <= 0)
         {
             LoadNextLevel();
         }

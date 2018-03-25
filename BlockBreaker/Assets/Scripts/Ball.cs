@@ -46,7 +46,6 @@ public class Ball : MonoBehaviour
         if (hasStarted)
         {
             Rigidbody2D body = GetComponent<Rigidbody2D>();
-            float x = body.velocity.x;
             body.velocity += tweak;
 
 

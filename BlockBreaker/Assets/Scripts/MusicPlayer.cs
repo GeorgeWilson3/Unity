@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MusicPlayer : MonoBehaviour {
 
-    static MusicPlayer instance = null;
+    static MusicPlayer instance;
 
     private void Awake()
     {
@@ -12,6 +12,7 @@ public class MusicPlayer : MonoBehaviour {
         {
             Destroy(gameObject);
             print("Duplicate music player.");
+
         }
         else
         {

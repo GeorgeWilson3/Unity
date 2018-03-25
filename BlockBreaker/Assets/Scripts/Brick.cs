@@ -158,17 +158,16 @@ public class Brick : MonoBehaviour
                 color.b = 0;
                 color.a = 255;
             }
-            this.GetComponent<SpriteRenderer>().color = color;
-            // this.GetComponent<SpriteRenderer>().sprite = hitSprites[spriteIndex];
+            else
+            {
+                color.r = 0;
+                color.g = 255;
+                color.b = 0;
+                color.a = 255;
+            }
 
+            this.GetComponent<SpriteRenderer>().color = color;
         }
         
     }
-
-    // TODO: Remove this methois once we can actually win
-    void SimulateWin()
-    {
-        levelManager.LoadNextLevel();
-    }
-
 }

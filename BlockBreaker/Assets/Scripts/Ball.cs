@@ -7,7 +7,7 @@ public class Ball : MonoBehaviour
     private Paddle paddle;
 
     private Vector3 paddleToBallVector;
-    private bool hasStarted = false;
+    private bool hasStarted;
     private AudioSource boing;
 
     // Use this for initialization

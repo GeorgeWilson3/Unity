@@ -28,7 +28,6 @@ public class Paddle : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        //ball = GetComponent<Ball>();
         ball = GameObject.FindObjectOfType<Ball>();
     }
 

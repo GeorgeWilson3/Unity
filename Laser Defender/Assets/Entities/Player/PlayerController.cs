@@ -4,14 +4,22 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    public float speed = 10f;
-    public float padding = 0.5f;
-    public GameObject Projectile;
-    public float projectileSpeed = 2f;
-    public float firingRate = 1.2f;
-    public float health = 250f;
-    public AudioClip laserSound;
-    public AudioClip death;
+    [SerializeField]
+    private float speed = 10f;
+    [SerializeField]
+    private float padding = 0.5f;
+    [SerializeField]
+    private GameObject Projectile;
+    [SerializeField]
+    private float projectileSpeed = 2f;
+    [SerializeField]
+    private float firingRate = 1.2f;
+    [SerializeField]
+    private float health = 250f;
+    [SerializeField]
+    private AudioClip laserSound;
+    [SerializeField]
+    private AudioClip death;
 
     private float xMin;
     private float xMax;
@@ -34,13 +42,9 @@ public class PlayerController : MonoBehaviour {
 	
     void Fire()
     {
-        Vector3 offset = new Vector3(0, 1, 0);
-
-        // GameObject laserBeam = Instantiate(Projectile, transform.position + offset, Quaternion.identity) as GameObject;
         GameObject laserBeam = Instantiate(Projectile, transform.position , Quaternion.identity) as GameObject;
         laserBeam.GetComponent<Rigidbody2D>().velocity = new Vector3(0f, projectileSpeed, 0);
         AudioSource.PlayClipAtPoint(laserSound, transform.position);
-
     }
 
     // Update is called once per frame
@@ -59,17 +63,12 @@ public class PlayerController : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            // transform.position += new Vector3(-speed * Time.deltaTime, 0, 0);
-
             transform.position += Vector3.left * speed * Time.deltaTime;
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
-            // transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
-
             transform.position += Vector3.right * speed * Time.deltaTime;
         }
-
 
         // Restrict player to game space
         float newX = Mathf.Clamp(transform.position.x, xMin, xMax);
@@ -92,8 +91,6 @@ public class PlayerController : MonoBehaviour {
                 manager.LoadLevel("Win Screen");
                 Destroy(gameObject);
             }
-
-            // Debug.Log("Hit by a projectile");
         }
     }
 }

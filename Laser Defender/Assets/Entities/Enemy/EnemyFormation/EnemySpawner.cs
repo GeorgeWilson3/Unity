@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-
-    public GameObject enemyPrefab;
-    public float width = 10f;
-    public float height = 5f;
-    public float spawnDelay = 0.5f;
-    public float speed = 0.05f;
+    [SerializeField]
+    private GameObject enemyPrefab;
+    [SerializeField]
+    private float width = 10f;
+    [SerializeField]
+    private float height = 5f;
+    [SerializeField]
+    private float spawnDelay = 0.5f;
+    [SerializeField]
+    private float speed = 0.05f;
 
     private float xMin;
     private float xMax;
@@ -59,7 +63,7 @@ public class EnemySpawner : MonoBehaviour
 
     }
     // Update is called once per frame
-    void Update ()
+    private void Update ()
     {
         transform.position += Vector3.left * speed * Time.deltaTime * direction;       
 
@@ -74,6 +78,10 @@ public class EnemySpawner : MonoBehaviour
         {
             direction = 1;
         }
+        else
+        {
+            // Nothing to do here.
+        }
 
         if(AllMembersDead())
         {
@@ -82,7 +90,7 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    bool AllMembersDead()
+    private bool AllMembersDead()
     {
         foreach (Transform childPositionGameObject in transform)
         {
@@ -94,7 +102,7 @@ public class EnemySpawner : MonoBehaviour
         return true;
     }
 
-    Transform NextFreePosition()
+    private Transform NextFreePosition()
     {
         foreach (Transform childPositionGameObject in transform)
         {

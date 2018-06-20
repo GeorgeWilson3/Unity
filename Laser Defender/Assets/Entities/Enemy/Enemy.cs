@@ -1,18 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using System;
+
 
 public class Enemy : MonoBehaviour
 {
-    public float health = 150;
-    public GameObject projectile;
-    public float projectileSpeed = 5f;
-    public float shotsPerSeccond = 0.5f;
-    public int scoreValue = 150;
+    [SerializeField]
+    private float health = 150;
+    [SerializeField]
+    private GameObject projectile;
+    [SerializeField]
+    private float projectileSpeed = 5f;
+    [SerializeField]
+    private float shotsPerSeccond = 0.5f;
+    [SerializeField]
+    private int scoreValue = 150;
     private ScoreKeeper scoreKeeper;
-    public AudioClip laserSound;
-    public AudioClip explosionSound;
+    [SerializeField]
+    private AudioClip laserSound;
+    [SerializeField]
+    private AudioClip explosionSound;
+
 
     private void Start()
     {

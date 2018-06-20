@@ -40,8 +40,6 @@ public class Enemy : MonoBehaviour
                 AudioSource.PlayClipAtPoint(explosionSound, transform.position);
                 Destroy(gameObject);
             }
-            
-            // Debug.Log("Hit by a projectile");
         }
     }
 

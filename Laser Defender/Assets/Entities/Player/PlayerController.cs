@@ -69,6 +69,10 @@ public class PlayerController : MonoBehaviour {
         {
             transform.position += Vector3.right * speed * Time.deltaTime;
         }
+        else
+        {
+            // We don't care about any other keys.
+        }
 
         // Restrict player to game space
         float newX = Mathf.Clamp(transform.position.x, xMin, xMax);

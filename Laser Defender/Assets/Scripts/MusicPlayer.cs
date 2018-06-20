@@ -43,6 +43,9 @@ public class MusicPlayer : MonoBehaviour {
         {
             music.clip = endClip;
         }
+        {
+            // Add more here if we add any new levels.
+        }
 
         music.loop = true;
         music.Play();

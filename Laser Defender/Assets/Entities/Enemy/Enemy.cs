@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour
             missile.Hit();
             if (health <- 0)
             {
-                scoreKeeper.Score = scoreValue;
+                ScoreKeeper.Score = scoreValue;
                 AudioSource.PlayClipAtPoint(explosionSound, transform.position);
                 Destroy(gameObject);
             }

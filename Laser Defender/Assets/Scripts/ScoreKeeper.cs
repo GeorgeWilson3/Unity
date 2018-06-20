@@ -4,15 +4,17 @@ using UnityEngine.UI;
 
 public class ScoreKeeper : MonoBehaviour {
 
-    private Text scoreText;
-    public static int score = 0;
+    private static Text scoreText;
+    [SerializeField]
+    private static int score;
 
-    public int Score
+    public static int Score
     {
+        get { return score; }
         set
         {
             score += value;
-            scoreText.text = score.ToString();
+            scoreText.text = Score.ToString();
         }
     }
     

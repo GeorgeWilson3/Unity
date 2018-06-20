@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour {
 
-    public float damage = 100f;
+    [SerializeField]
+    private float damage = 100f;
 
     public void Hit()
     {

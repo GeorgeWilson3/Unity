@@ -2,10 +2,13 @@
 using System.Collections;
 
 public class MusicPlayer : MonoBehaviour {
-	static MusicPlayer instance = null;
-    public AudioClip startClip;
-    public AudioClip gameClip;
-    public AudioClip endClip;
+	static MusicPlayer instance;
+    [SerializeField]
+    private AudioClip startClip;
+    [SerializeField]
+    private AudioClip gameClip;
+    [SerializeField]
+    private AudioClip endClip;
 
     private AudioSource music;
 

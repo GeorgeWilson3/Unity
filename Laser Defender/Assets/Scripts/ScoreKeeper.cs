@@ -6,9 +6,16 @@ public class ScoreKeeper : MonoBehaviour
 {
 
 
-    public static Text scoreText;
+    private static Text scoreText;
     [SerializeField]
     private int score;
+
+    public static Text ScoreText
+    {
+        get { return scoreText; }
+        set { scoreText = value; }
+
+    }
 
     public int Score
     {
@@ -18,7 +25,7 @@ public class ScoreKeeper : MonoBehaviour
             score += value;            
         }
     }
-    
+
     private void Start()
     {
         Enemy.OnScore += Enemy_OnScore;

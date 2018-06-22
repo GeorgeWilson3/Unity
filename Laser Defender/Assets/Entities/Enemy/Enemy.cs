@@ -14,7 +14,6 @@ public class Enemy : MonoBehaviour
     private float shotsPerSeccond = 0.5f;
     [SerializeField]
     private int scoreValue = 150;
-    private ScoreKeeper scoreKeeper;
     [SerializeField]
     private AudioClip laserSound;
     [SerializeField]
@@ -22,12 +21,6 @@ public class Enemy : MonoBehaviour
 
     public delegate void Score(int points);
     public static event Score OnScore;
-
-    private void Start()
-    {
-        scoreKeeper = GameObject.Find("Score").GetComponent<ScoreKeeper>();
-    }
-
     
     public void OnTriggerEnter2D(Collider2D collision)
     {      

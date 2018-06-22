@@ -43,6 +43,7 @@ public class MusicPlayer : MonoBehaviour {
         {
             music.clip = endClip;
         }
+        else
         {
             // Add more here if we add any new levels.
         }

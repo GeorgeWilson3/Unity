@@ -37,8 +37,6 @@ public class PlayerController : MonoBehaviour
 
         xMin = leftmost.x + padding;
         xMax = rightmost.x - padding;
-
-        //ScoreKeeper.Reset();
     }
 	
     void Fire()

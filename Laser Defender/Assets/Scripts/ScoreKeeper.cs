@@ -21,7 +21,7 @@ public class ScoreKeeper : MonoBehaviour
     
     private void Start()
     {
-        Enemy.OnScore += Enemy_OnScore; ;
+        Enemy.OnScore += Enemy_OnScore;
 
         scoreText = GetComponent<Text>();
         Reset();

@@ -22,7 +22,6 @@ public class Enemy : MonoBehaviour
 
     public delegate void Score(int points);
     public static event Score OnScore;
-    //public static event EventHandler OnScore;
 
     private void Start()
     {

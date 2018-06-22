@@ -9,7 +9,6 @@ public class ScoreDisplay : MonoBehaviour
     private void Start ()
     {
         Text scoreText = GetComponent<Text>();
-        scoreText.text = ScoreKeeper.Score.ToString();
-        ScoreKeeper.Reset();
+        scoreText.text = ScoreKeeper.scoreText.text; //  scoreKeeper.Score.ToString();
 	}	
 }

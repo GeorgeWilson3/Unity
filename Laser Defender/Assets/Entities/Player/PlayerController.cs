@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour
+{
 
     [SerializeField]
     private float speed = 10f;
@@ -37,7 +38,7 @@ public class PlayerController : MonoBehaviour {
         xMin = leftmost.x + padding;
         xMax = rightmost.x - padding;
 
-        ScoreKeeper.Reset();
+        //ScoreKeeper.Reset();
     }
 	
     void Fire()

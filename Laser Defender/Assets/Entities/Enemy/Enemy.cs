@@ -20,13 +20,16 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private AudioClip explosionSound;
 
+    public delegate void Score(int points);
+    public static event Score OnScore;
+    //public static event EventHandler OnScore;
 
     private void Start()
     {
         scoreKeeper = GameObject.Find("Score").GetComponent<ScoreKeeper>();
     }
 
-
+    
     public void OnTriggerEnter2D(Collider2D collision)
     {      
         Projectile missile = collision.gameObject.GetComponent<Projectile>();
@@ -36,7 +39,8 @@ public class Enemy : MonoBehaviour
             missile.Hit();
             if (health <- 0)
             {
-                ScoreKeeper.Score = scoreValue;
+                OnScore(scoreValue);
+
                 AudioSource.PlayClipAtPoint(explosionSound, transform.position);
                 Destroy(gameObject);
             }

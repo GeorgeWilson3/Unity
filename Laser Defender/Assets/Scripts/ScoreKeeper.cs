@@ -2,31 +2,45 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ScoreKeeper : MonoBehaviour {
+public class ScoreKeeper : MonoBehaviour
+{
 
-    private static Text scoreText;
+
+    public static Text scoreText;
     [SerializeField]
-    private static int score;
+    private int score;
 
-    public static int Score
+    public int Score
     {
         get { return score; }
         set
         {
-            score += value;
-            scoreText.text = Score.ToString();
+            score += value;            
         }
     }
     
-
     private void Start()
     {
+        Enemy.OnScore += Enemy_OnScore; ;
+
         scoreText = GetComponent<Text>();
         Reset();
     }
 
-    public static void Reset()
+    private void Enemy_OnScore(int points)
     {
-        score = 0;        
+        Score = points;
+        UpdateScoreText();
+    }
+
+    private void UpdateScoreText()
+    {
+        scoreText.text = Score.ToString();
+    }
+
+    public void Reset()
+    {
+        score = 0;
+        UpdateScoreText();
     }
 }
